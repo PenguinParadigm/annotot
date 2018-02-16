@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Annotot::VERSION
   s.authors     = ['Jack Reed']
   s.email       = ['phillipjreed@gmail.com']
-  s.homepage    = 'https://github.com/sul-dlss/annotot'
+  s.homepage    = 'https://github.com/mejackreed/annotot'
   s.summary     = 'Annotot. Open annotations in Rails.'
   s.description = 'Annotot. Open annotations in Rails.'
   s.license     = 'Apache-2.0'
@@ -18,5 +18,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '~> 5.1.4'
 
+  s.add_development_dependency 'engine_cart'
   s.add_development_dependency 'sqlite3'
 end
