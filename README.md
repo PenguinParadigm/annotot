@@ -1,4 +1,6 @@
 # Annotot
+[![Build Status](https://travis-ci.org/mejackreed/annotot.svg?branch=master)](https://travis-ci.org/mejackreed/annotot)
+
 Need to persist annotations quick and easily? Annotot, the original mini annotation API is for you. Don't annotate, annotot instead.
 
 ![](annotot.png)
