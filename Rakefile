@@ -3,8 +3,6 @@ begin
 rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
+Bundler::GemHelper.install_tasks
 
-load 'rails/tasks/engine.rake'
-load 'rails/tasks/statistics.rake'
-
-require 'bundler/gem_tasks'
+require 'engine_cart/rake_task'

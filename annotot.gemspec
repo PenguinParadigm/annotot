@@ -19,5 +19,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '~> 5.1.4'
 
   s.add_development_dependency 'engine_cart'
+  s.add_development_dependency 'factory_bot_rails'
+  s.add_development_dependency 'rails-controller-testing'
+  s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'sqlite3'
 end
