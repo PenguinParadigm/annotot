@@ -3,6 +3,8 @@
 
 Need to persist annotations quick and easily? Annotot, the original mini annotation API is for you. Don't annotate, annotot instead.
 
+h/t @efahy for the inspiration and name
+
 ![](annotot.png)
 
 This logo, "Annotot", is a derivative of "[Sweet Potato Tator Tots](https://www.flickr.com/photos/flyfarther79/6270223411/)" by [Lisa Brettschneider](https://www.flickr.com/photos/flyfarther79/) used under [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/). "Annotot" is also licensed under [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/).
