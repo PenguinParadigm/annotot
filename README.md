@@ -3,7 +3,7 @@
 
 Need to persist annotations quick and easily? Annotot, the original mini annotation API is for you. Don't annotate, annotot instead.
 
-h/t @efahy for the inspiration and name
+h/t [@eefahy](https://github.com/eefahy) for the inspiration and name
 
 ![](annotot.png)
 
