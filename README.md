@@ -40,6 +40,11 @@ And then execute:
 $ bundle install
 ```
 
+Install the gem:
+```bash
+$ rails g annotot:install
+```
+
 If you are serving both Mirador and Annotot in the same application, the integration will be easier. You can just require the `annotot_endpoint.js` file.
 
 ```javascript
