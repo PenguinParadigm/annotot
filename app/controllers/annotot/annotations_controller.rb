@@ -59,7 +59,7 @@ module Annotot
     end
 
     def annotation_search_params
-      params.require(:uri)
+      CGI.unescape(params.require(:uri))
     end
   end
 end
