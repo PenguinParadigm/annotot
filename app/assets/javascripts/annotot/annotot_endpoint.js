@@ -37,7 +37,9 @@
         url: _this.endpoint,
         type: 'GET',
         dataType: 'json',
-        headers: { },
+        headers: {
+          'X-CSRF-Token': _this.csrfToken()
+        },
         data: options,  // options.uri contains the Canvas URI
         contentType: "application/json; charset=utf-8",
         success: function(data) {
@@ -69,7 +71,7 @@
         type: 'DELETE',
         dataType: 'json',
         headers: {
-          // 'X-CSRF-Token': _this.csrfToken()
+          'X-CSRF-Token': _this.csrfToken()
         },
         contentType: "application/json; charset=utf-8",
         success: function(data) {
@@ -124,7 +126,7 @@
         url: _this.endpoint,
         type: 'POST',
         headers: {
-          // 'X-CSRF-Token': _this.csrfToken()
+          'X-CSRF-Token': _this.csrfToken()
         },
         data: JSON.stringify(annotation),
         contentType: "application/json; charset=utf-8",
