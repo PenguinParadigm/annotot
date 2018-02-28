@@ -30,6 +30,76 @@ annotationEndpoint: {
 
 If you want to configure Annotot to receive annotations from external sources make sure that you enable CORs in the Rails application. This can be done using [rack-cors](https://github.com/cyu/rack-cors).
 
+## API
+
+Annotot by default mounts itself at `/`. Though [this can be changed](http://guides.rubyonrails.org/engines.html#mounting-the-engine). All API endpoints are relative to its mount location.
+
+| Path / Url | HTTP Verb | Path | Controller#Action |
+| --- | --- | --- | --- |
+| [annotations_path](#annotationspath) | GET | /annotations(.:format) | annotot/annotations#index {:format=>:json} |
+| | POST | /annotations(.:format) | annotot/annotations#create {:format=>:json} |
+| [lists_annotations_path](#listsannotationspath) | GET | /annotations/lists(.:format) | annotot/annotations#lists {:format=>:json} |
+| [annotation_path](#annotationpath) | PATCH | /annotations/:id(.:format) | annotot/annotations#update {:format=>:json} |
+| | PUT | /annotations/:id(.:format) |  annotot/annotations#update {:format=>:json}
+| | DELETE | /annotations/:id(.:format) |  annotot/annotations#destroy {:format=>:json}
+
+---
+
+### annotations_path
+`GET` - Return annotations for a given canvas
+
+Parameters:
+
+| Name | Required? | Description |
+| --- | --- | --- |
+| uri | yes | Canvas uri for which to return annotations
+
+`POST` -  Create a new annotation
+
+Parameters:
+
+| Name | Required? | Description |
+| --- | --- | --- |
+| annotation | yes | object containing creation parameters
+| annotation.uuid | no | uuid for annotation
+| annotation.data | no | annotation body data as string
+| annotation.canvas | no | canvas to place the annotation on
+
+---
+
+### lists_annotations_path
+`GET` - Return an AnnotationList of annotations for a given canvas
+
+Parameters:
+
+| Name | Required? | Description |
+| --- | --- | --- |
+| uri | yes | Canvas uri for which to return annotations
+
+---
+
+### annotation_path
+`PATCH`, `PUT` - Update an annotation
+
+Parameters:
+
+| Name | Required? | Description |
+| --- | --- | --- |
+| id | yes | Canvas uri or Rails ActiveRecord id for annotation to update
+| annotation | yes | object containing creation parameters
+| annotation.uuid | no | uuid for annotation
+| annotation.data | no | annotation body data as string
+| annotation.canvas | no | canvas to place the annotation on
+
+`DELETE` - Delete an annotation
+
+Parameters:
+
+| Name | Required? | Description |
+| --- | --- | --- |
+| id | yes | Canvas uri or Rails ActiveRecord id for annotation to delete
+
+
 ## Installation
 Add this line to your application's Gemfile:
 
