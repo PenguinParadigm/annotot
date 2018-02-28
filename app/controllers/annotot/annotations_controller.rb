@@ -50,7 +50,7 @@ module Annotot
     private
 
     def set_annotation
-      @annotation = Annotation.find_by(id: params[:id]) || Annotation.find_by(uuid: params[:id])
+      @annotation = Annotation.find_by(id: CGI.unescape(params[:id])) || Annotation.find_by(uuid: CGI.unescape(params[:id]))
       raise ActiveRecord::RecordNotFound unless @annotation.present?
     end
 
@@ -59,7 +59,7 @@ module Annotot
     end
 
     def annotation_search_params
-      params.require(:uri)
+      CGI.unescape(params.require(:uri))
     end
   end
 end
