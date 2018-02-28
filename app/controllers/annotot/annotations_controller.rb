@@ -9,6 +9,11 @@ module Annotot
       @annotations = Annotation.where(canvas: annotation_search_params)
     end
 
+    # Get /annotations/lists
+    def lists
+      @annotations = Annotation.where(canvas: annotation_search_params)
+    end
+
     # POST /annotations
     def create
       @annotation = Annotation.new(annotation_params)
