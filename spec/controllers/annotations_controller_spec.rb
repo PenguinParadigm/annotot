@@ -39,7 +39,7 @@ RSpec.describe Annotot::AnnotationsController, type: :controller do
     end
     it 'returns annotations that have the correct canvas uri' do
       get :lists, params: { uri: 'http://www.example.com/hola', format: :json }
-      expect(response.status).to eq 204
+      expect(response.status).to eq 200
       expect(assigns(:annotations).length).to eq 3
     end
     it 'requires uri parameter' do
