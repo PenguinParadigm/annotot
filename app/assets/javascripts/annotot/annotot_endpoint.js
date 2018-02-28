@@ -65,7 +65,7 @@
     deleteAnnotation: function(annotationID, successCallback, errorCallback) {
       var _this = this;
       jQuery.ajax({
-        url: _this.endpoint + '/' + annotationID,
+        url: _this.endpoint + '/' + encodeURIComponent(annotationID),
         type: 'DELETE',
         dataType: 'json',
         headers: {
@@ -93,7 +93,7 @@
       var annotationID = annotation.annotation['uuid'];
 
       jQuery.ajax({
-        url: _this.endpoint + '/' + annotationID,
+        url: _this.endpoint + '/' + encodeURIComponent(annotationID),
         type: 'PATCH',
         dataType: 'json',
         headers: {
