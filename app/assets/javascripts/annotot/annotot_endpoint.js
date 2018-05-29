@@ -166,7 +166,6 @@
       canvas = oaAnnotation.on[0].full;
       var newAnno = jQuery.extend({}, oaAnnotation);
       delete newAnno.endpoint;
-      console.log(oaAnnotation);
       return {
         annotation: {
           uuid: oaAnnotation["@id"],
