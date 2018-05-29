@@ -31,7 +31,7 @@
     search: function(options, successCallback, errorCallback) {
       var _this = this;
       _this.annotationsList = [];
-      options.format = 'json'
+      options.format = 'json';
 
       jQuery.ajax({
         url: _this.endpoint,
@@ -89,8 +89,8 @@
     update: function(oaAnnotation, successCallback, errorCallback) {
       var _this = this;
       var annotation = _this.getAnnotationInEndpoint(oaAnnotation);
-      
-      var annotationID = annotation.annotation['uuid'];
+
+      var annotationID = annotation.annotation.uuid;
 
       jQuery.ajax({
         url: _this.endpoint + '/' + encodeURIComponent(annotationID),
@@ -158,13 +158,15 @@
     // Converts OA Annotation to endpoint format
     getAnnotationInEndpoint: function(oaAnnotation) {
       // Generate a new uuid if one is not present
-      if (oaAnnotation['@id'] == null) {
+      // condition needs to be set to "undefined" to catch instances without an @id
+      if (oaAnnotation['@id'] === undefined) {
         oaAnnotation["@id"] = Mirador.genUUID();
       }
-      
+
       canvas = oaAnnotation.on[0].full;
       var newAnno = jQuery.extend({}, oaAnnotation);
-      delete newAnno.endpoint
+      delete newAnno.endpoint;
+      console.log(oaAnnotation);
       return {
         annotation: {
           uuid: oaAnnotation["@id"],
