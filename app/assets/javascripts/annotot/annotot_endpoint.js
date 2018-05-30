@@ -158,8 +158,9 @@
     // Converts OA Annotation to endpoint format
     getAnnotationInEndpoint: function(oaAnnotation) {
       // Generate a new uuid if one is not present
-      // condition needs to be set to "undefined" to catch instances without an @id
-      if (oaAnnotation['@id'] === undefined) {
+      // condition needs to be set to check for "falsy" values
+      // !oaAnnotation['@id'] should match null and undefined
+      if (!oaAnnotation['@id']) {
         oaAnnotation["@id"] = Mirador.genUUID();
       }
 
