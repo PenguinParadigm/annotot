@@ -77,10 +77,17 @@ RSpec.describe Annotot::AnnotationsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    it 'destroys the requested annotation' do
+    it 'destroys the requested annotation by uuid' do
       annotation = FactoryBot.create :annotation
       expect do
         delete :destroy, params: { format: :json, id: annotation.uuid }
+      end.to change(Annotot::Annotation, :count).by(-1)
+    end
+
+    it 'destroys the requested annotation by id' do
+      annotation = FactoryBot.create :annotation
+      expect do
+        delete :destroy, params: { format: :json, id: annotation.id }
       end.to change(Annotot::Annotation, :count).by(-1)
     end
 
