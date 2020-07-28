@@ -47,6 +47,22 @@ RSpec.describe Annotot::AnnotationsController, type: :controller do
         .to raise_error ActionController::ParameterMissing, /uri/
     end
   end
+  describe 'GET pages' do
+    before do
+      FactoryBot.create_list(:annotation, 2)
+      FactoryBot.create(:annotation, canvas: 'http://www.example.com/bad')
+      FactoryBot.create(:annotation, canvas: 'http://www.example.com/hola')
+    end
+    it 'returns annotations that have the correct canvas uri' do
+      get :pages, params: { uri: 'http://www.example.com/hola', format: :json }
+      expect(response.status).to eq 200
+      expect(assigns(:annotations).length).to eq 3
+    end
+    it 'requires uri parameter' do
+      expect { get :lists, params: { format: :json } }
+        .to raise_error ActionController::ParameterMissing, /uri/
+    end
+  end
   describe 'POST #create' do
     context 'with valid parameters' do
       it 'creates a new Annotation' do

@@ -2,15 +2,23 @@ require_dependency "annotot/application_controller"
 
 module Annotot
   class AnnotationsController < ApplicationController
-    before_action :set_annotation, only: %i[update destroy]
+    before_action :set_annotation, only: %i[update destroy show]
 
     # GET /annotations
     def index
       @annotations = Annotation.where(canvas: annotation_search_params)
     end
 
+    # GET /annotations
+    def show; end
+
     # Get /annotations/lists
     def lists
+      @annotations = Annotation.where(canvas: annotation_search_params)
+    end
+
+    # Get /annotations/pages
+    def pages
       @annotations = Annotation.where(canvas: annotation_search_params)
     end
 
