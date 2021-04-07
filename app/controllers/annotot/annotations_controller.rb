@@ -2,29 +2,25 @@ require_dependency "annotot/application_controller"
 
 module Annotot
   class AnnotationsController < ApplicationController
+    before_action :load_annotations, except: %i[update destroy show create]
     before_action :set_annotation, only: %i[update destroy show]
+    before_action :build_annotation, only: :create
 
     # GET /annotations
-    def index
-      @annotations = Annotation.where(canvas: annotation_search_params)
-    end
+    def index; end
 
     # GET /annotations
     def show; end
 
     # Get /annotations/lists
-    def lists
-      @annotations = Annotation.where(canvas: annotation_search_params)
-    end
+    def lists; end
 
     # Get /annotations/pages
-    def pages
-      @annotations = Annotation.where(canvas: annotation_search_params)
-    end
+    def pages; end
 
     # POST /annotations
     def create
-      @annotation = Annotation.new(annotation_params)
+      @annotation.assign_attributes(annotation_params)
 
       if @annotation.save
         render json: @annotation.data
@@ -57,11 +53,19 @@ module Annotot
 
     private
 
+    def load_annotations
+      @annotations = Annotation.where(canvas: annotation_search_params)
+    end
+
     def set_annotation
       @annotation = Annotot::Annotation.retrieve_by_id_or_uuid(
         CGI.unescape(params[:id])
       )
       raise ActiveRecord::RecordNotFound unless @annotation.present?
+    end
+
+    def build_annotation
+      @annotation = Annotation.new
     end
 
     def annotation_params
