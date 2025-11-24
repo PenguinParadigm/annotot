@@ -1,4 +1,4 @@
-$:.push File.expand_path('../lib', __FILE__)
+$:.push File.expand_path('lib', __dir__)
 
 # Maintain your gem's version:
 require 'annotot/version'
@@ -16,11 +16,10 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,db,lib}/**/*', 'LICENSE', 'Rakefile', 'README.md']
 
-  s.add_dependency 'rails', '>= 5.1', '< 8'
+  s.add_dependency 'rails', '>= 7.0', '< 9'
 
   s.add_development_dependency 'engine_cart'
   s.add_development_dependency 'factory_bot_rails'
   s.add_development_dependency 'rails-controller-testing'
   s.add_development_dependency 'rspec-rails'
-  s.add_development_dependency 'sqlite3'
 end
