@@ -3,7 +3,7 @@ module Annotot
     validates :uuid, presence: true, uniqueness: true
     validates :canvas, presence: true
 
-    serialize :data, JSON
+    serialize :data, coder: JSON
 
     ##
     # Used to differentiate between a numeric id and a uuid. Rails will trim a
